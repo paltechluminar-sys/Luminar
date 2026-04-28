@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Luminar/static/css/main.fc3e8c28.css",
-    "main.js": "/Luminar/static/js/main.508e958d.js",
+    "main.js": "/Luminar/static/js/main.bd221d29.js",
     "static/js/737.a620cb7f.chunk.js": "/Luminar/static/js/737.a620cb7f.chunk.js",
     "static/js/649.5c02df4d.chunk.js": "/Luminar/static/js/649.5c02df4d.chunk.js",
     "static/js/98.a94b2534.chunk.js": "/Luminar/static/js/98.a94b2534.chunk.js",
@@ -98,7 +98,7 @@
     "static/media/index.cjs": "/Luminar/static/media/index.67119134987864d33189.cjs",
     "index.html": "/Luminar/index.html",
     "main.fc3e8c28.css.map": "/Luminar/static/css/main.fc3e8c28.css.map",
-    "main.508e958d.js.map": "/Luminar/static/js/main.508e958d.js.map",
+    "main.bd221d29.js.map": "/Luminar/static/js/main.bd221d29.js.map",
     "737.a620cb7f.chunk.js.map": "/Luminar/static/js/737.a620cb7f.chunk.js.map",
     "649.5c02df4d.chunk.js.map": "/Luminar/static/js/649.5c02df4d.chunk.js.map",
     "98.a94b2534.chunk.js.map": "/Luminar/static/js/98.a94b2534.chunk.js.map",
@@ -116,6 +116,6 @@
   },
   "entrypoints": [
     "static/css/main.fc3e8c28.css",
-    "static/js/main.508e958d.js"
+    "static/js/main.bd221d29.js"
   ]
 }
