@@ -31,11 +31,11 @@
 .tab-button {
   padding: 3px 12px;
   background: transparent;
-  color: #000000;
+  color: #e9edef;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
   font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
   font-size: 17px;
   font-weight: 400;
@@ -45,6 +45,12 @@
   align-items: center;
   justify-content: center;
   min-width: 70px;
+  opacity: 0.85;
+}
+
+.tab-button:hover {
+  color: #00dd00;
+  opacity: 1;
 }
 
 .tab-button.active {
@@ -54,16 +60,17 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
   font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 17px;
+  font-weight: 700;
   white-space: nowrap;
   height: 28px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-width: 70px;
+  opacity: 1;
 }
 
 .studio-page-header {
