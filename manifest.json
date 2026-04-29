@@ -1,0 +1,46 @@
+{
+  "short_name": "Luminar",
+  "name": "Luminar - Authentic Connections",
+  "description": "Premium authentic connections and content creation platform with professional photo editing tools.",
+  "icons": [
+    {
+      "src": "PaltechBlack192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "PaltechBlack152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "PaltechBlack512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#00a884",
+  "background_color": "#0b1216",
+  "categories": ["social", "productivity"],
+  "screenshots": [
+    {
+      "src": "PaltechBlack512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "PaltechBlack192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ]
+}
