@@ -1,0 +1,544 @@
+.quote-content {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0;
+}
+
+.quote-header {
+  position: relative;
+  width: 100%;
+}
+
+.quote-symbol {
+  position: absolute;
+  top: 6px;
+  left: 12px;
+  font-size: 28px;
+  color: #ffffff;
+  font-weight: bold;
+  line-height: 1;
+  z-index: 15;
+  pointer-events: none;
+  font-family: 'Roboto', sans-serif;
+}
+
+.quote-image-container {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 15;
+}
+
+.quote-image-button {
+  width: 100px;
+  height: 100px;
+  border: 0.1px dotted #007bff;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  padding: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  outline: none;
+}
+
+.quote-image-button:hover {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+.quote-image-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.quote-image-placeholder {
+  font-size: 24px;
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+}
+
+.quote-textarea {
+  width: 100%;
+  min-height: calc(1.4em * 3);
+  height: auto;
+  line-height: 1.4;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 6px 8px 8px 32px;
+  margin-bottom: 3px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(124, 252, 0, 0.3);
+  border-radius: 5px;
+  text-align: center;
+  overflow: hidden;
+  resize: none;
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  margin-top: 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  box-sizing: border-box;
+}
+
+.quote-textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 1px rgba(124, 252, 0, 1);
+}
+
+.quote-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+  width: 100%;
+  margin-top: auto;
+  padding-top: 0;
+}
+
+.quote-spokesperson-input {
+  width: 140px;
+  font-size: 11px;
+  font-weight: normal;
+  padding: 6px 8px;
+  background: rgba(0, 0, 0, 0.7);
+  border: none;
+  border-radius: 3px;
+  text-align: right;
+  color: rgba(255, 255, 255, 0.72);
+  font-family: 'Roboto', sans-serif;
+}
+
+.quote-spokesperson-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 1px rgba(124, 252, 0, 1);
+}
+
+.quote-date-selector {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  margin: 0;
+}
+
+.quote-date-selector select {
+  background: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  border: none;
+  border-radius: 3px;
+  padding: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.quote-year-select {
+  width: 80px;
+}
+
+/* ===== TEMPLATE MODE STYLING (separate from default) ===== */
+
+.quote-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background: transparent;
+  border-radius: 0;
+  border: none;
+}
+
+.quote-template-preview {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  flex: 1;
+  border-radius: 0;
+  overflow: visible;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+/* Overlaid textarea - Invisible until focused, positioned in quote body only */
+.quote-textarea-overlay {
+  position: absolute;
+  top: 110px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  max-width: 470px;
+  min-height: 90px;
+  height: auto;
+  line-height: 1.6;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 12px 16px;
+  margin: 0;
+  background: transparent;
+  border: 1px solid rgba(124, 252, 0, 0.3);
+  border-radius: 8px;
+  text-align: left;
+  overflow: hidden;
+  resize: none;
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+  z-index: 10;
+  outline: none;
+  transition: all 0.2s ease;
+  cursor: text;
+}
+
+.quote-textarea-overlay::placeholder {
+  color: transparent;
+}
+
+.quote-textarea-overlay:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.quote-textarea-overlay:focus {
+  background: rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(124, 252, 0, 0.4);
+  caret-color: #ffffff;
+}
+
+.quote-textarea-overlay:focus::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* Speaker overlay input - invisible until focused */
+.quote-speaker-overlay {
+  position: absolute;
+  bottom: 9%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 260px;
+  height: auto;
+  padding: 3px 10px;
+  font-size: 14px;
+  font-weight: 500;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  color: #ffffff;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  z-index: 10;
+  display: none;
+  outline: none;
+  transition: background 0.2s ease;
+  cursor: text;
+  box-sizing: border-box;
+}
+
+.quote-speaker-overlay::placeholder {
+  color: transparent;
+}
+
+.quote-speaker-overlay:focus {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(124, 252, 0, 0.4);
+  border-radius: 3px;
+  caret-color: #ffffff;
+}
+
+.quote-speaker-overlay:focus::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Image upload button overlay */
+.quote-image-overlay-button {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  padding: 6px 12px;
+  background: #4CAF50;
+  color: #ffffff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 500;
+  font-family: 'Roboto', sans-serif;
+  z-index: 10;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.quote-image-overlay-button:hover {
+  background: #45a049;
+}
+
+.quote-image-overlay-button:active {
+  background: #3d8b40;
+}
+
+/* Hide controls completely on canvas - they should only show in edit panel */
+.quote-editing-controls {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  max-height: none;
+  overflow: visible;
+}
+
+.quote-controls-group {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.control-label {
+  display: none;
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.quote-editing-controls .quote-symbol {
+  display: none;
+}
+
+.quote-editing-controls .quote-textarea {
+  display: none;
+}
+
+.quote-editing-controls .quote-footer {
+  display: none;
+}
+
+.quote-editing-controls .quote-spokesperson-input {
+  display: none;
+  width: 100%;
+  font-size: 11px;
+  font-weight: normal;
+  padding: 6px 8px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid #444444;
+  border-radius: 3px;
+  text-align: left;
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+}
+
+.quote-editing-controls .quote-spokesperson-input:focus {
+  outline: none;
+  border-color: #4CAF50;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.quote-editing-controls .quote-spokesperson-input::placeholder {
+  color: #777777;
+}
+
+.quote-image-upload-hint {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  background: rgba(76, 175, 80, 0.08);
+  border: 1px solid rgba(76, 175, 80, 0.3);
+  border-radius: 3px;
+}
+
+.quote-image-upload-button {
+  display: none;
+  width: 100%;
+  padding: 6px 10px;
+  background: #4CAF50;
+  color: #ffffff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 500;
+  font-family: 'Roboto', sans-serif;
+  transition: all 0.2s ease;
+}
+
+.quote-image-upload-button:hover {
+  background: #45a049;
+}
+
+.quote-image-upload-button:active {
+  background: #3d8b40;
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .quote-container {
+    padding: 0;
+    gap: 0;
+  }
+
+  .quote-template-preview {
+    min-height: auto;
+  }
+
+  .quote-textarea-overlay {
+    top: 100px;
+    width: 86%;
+    max-width: 430px;
+    min-height: 75px;
+    font-size: 15px;
+    padding: 9px 13px;
+  }
+
+  .quote-speaker-overlay {
+    bottom: 10%;
+    width: 245px;
+    font-size: 13px;
+    padding: 3px 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .quote-container {
+    padding: 0;
+    gap: 0;
+  }
+
+  .quote-template-preview {
+    min-height: auto;
+  }
+
+  .quote-textarea-overlay {
+    top: 95px;
+    width: 87%;
+    max-width: 400px;
+    min-height: 65px;
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .quote-speaker-overlay {
+    bottom: 11%;
+    width: 230px;
+    font-size: 12px;
+    padding: 2px 10px;
+  }
+
+  .quote-image-overlay-button {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+}
+
+/* ===== ULTRA-RESPONSIVE MOBILE OPTIMIZATION ===== */
+@media (max-width: 480px) {
+  .quote-container {
+    min-height: 280px;
+  }
+
+  .quote-template-preview {
+    min-height: 280px;
+  }
+
+  .quote-textarea-overlay {
+    top: 80px;
+    width: 88%;
+    max-width: 320px;
+    min-height: 55px;
+    font-size: 12px;
+    padding: 6px 10px;
+    line-height: 1.4;
+  }
+
+  .quote-speaker-overlay {
+    bottom: 12%;
+    width: 200px;
+    font-size: 10px;
+    padding: 2px 8px;
+  }
+
+  .quote-image-overlay-button {
+    padding: 5px 10px;
+    font-size: 10px;
+    bottom: 8%;
+  }
+
+  .quote-image-button {
+    width: 80px;
+    height: 80px;
+  }
+
+  .quote-symbol {
+    font-size: 24px;
+    top: 4px;
+    left: 8px;
+  }
+}
+
+@media (max-width: 360px) {
+  .quote-container {
+    min-height: 260px;
+  }
+
+  .quote-template-preview {
+    min-height: 260px;
+  }
+
+  .quote-textarea-overlay {
+    top: 70px;
+    width: 90%;
+    max-width: 280px;
+    min-height: 50px;
+    font-size: 11px;
+    padding: 5px 8px;
+  }
+
+  .quote-speaker-overlay {
+    bottom: 13%;
+    width: 180px;
+    font-size: 9px;
+    padding: 1px 6px;
+  }
+
+  .quote-image-overlay-button {
+    padding: 4px 8px;
+    font-size: 9px;
+  }
+
+  .quote-image-button {
+    width: 70px;
+    height: 70px;
+  }
+
+  .quote-symbol {
+    font-size: 20px;
+    top: 2px;
+    left: 6px;
+  }
+}

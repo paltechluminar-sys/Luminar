@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Luminar</string>
+    <string name="title_activity_main">Luminar</string>
+    <string name="package_name">com.luminar.app</string>
+    <string name="custom_url_scheme">com.luminar.app</string>
+</resources>

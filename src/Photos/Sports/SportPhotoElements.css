@@ -1,0 +1,261 @@
+/* Base styles for the photo element */
+.photo-element-pks {
+  position: relative;
+  box-sizing: border-box; /* Ensure padding/borders don’t affect size */
+}
+
+/* Active state with outline */
+.photo-element-pks.active-pks {
+  outline: 2px solid #0078d7;
+  outline-offset: 2px; /* Space between outline and handles */
+}
+
+/* Base handle styles */
+.resize-handle {
+  position: absolute;
+  background: white;
+  border: 1px solid black;
+  box-sizing: border-box;
+  z-index: 10; /* Ensure handles are above the image */
+}
+
+/* Rotation handle */
+.rotate-handle {
+  position: absolute;
+  background: green;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+/* Responsive handle sizes and positioning */
+@media screen and (min-width: 1024px) {
+  /* Desktop: Larger screens */
+  .resize-handle {
+    width: 8px;
+    height: 8px;
+  }
+
+  .rotate-handle {
+    width: 8px;
+    height: 8px;
+    top: -34px; /* Position above the image */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .resize-handle.top-left {
+    top: -4px;
+    left: -4px;
+    cursor: nwse-resize;
+  }
+
+  .resize-handle.top-right {
+    top: -4px;
+    right: -4px;
+    cursor: nesw-resize;
+  }
+
+  .resize-handle.bottom-left {
+    bottom: -4px;
+    left: -4px;
+    cursor: nesw-resize;
+  }
+
+  .resize-handle.bottom-right {
+    bottom: -4px;
+    right: -4px;
+    cursor: nwse-resize;
+  }
+
+  .resize-handle.top {
+    top: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: n-resize;
+  }
+
+  .resize-handle.bottom {
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: s-resize;
+  }
+
+  .resize-handle.left {
+    left: -4px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: w-resize;
+  }
+
+  .resize-handle.right {
+    right: -4px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: e-resize;
+  }
+}
+
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+  /* Tablet: Medium screens */
+  .resize-handle {
+    width: 10px; /* Slightly larger for touch */
+    height: 10px;
+  }
+
+  .rotate-handle {
+    width: 10px;
+    height: 10px;
+    top: -30px; /* Closer to image for smaller screens */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .resize-handle.top-left {
+    top: -5px;
+    left: -5px;
+  }
+
+  .resize-handle.top-right {
+    top: -5px;
+    right: -5px;
+  }
+
+  .resize-handle.bottom-left {
+    bottom: -5px;
+    left: -5px;
+  }
+
+  .resize-handle.bottom-right {
+    bottom: -5px;
+    right: -5px;
+  }
+
+  .resize-handle.top {
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .resize-handle.bottom {
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .resize-handle.left {
+    left: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .resize-handle.right {
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  /* Mobile: Small screens */
+  .resize-handle {
+    width: 12px; /* Larger for touch accuracy */
+    height: 12px;
+    border: 2px solid black; /* Thicker border for visibility */
+  }
+
+  .rotate-handle {
+    width: 12px;
+    height: 12px;
+    top: -25px; /* Even closer for mobile */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .resize-handle.top-left {
+    top: -6px;
+    left: -6px;
+  }
+
+  .resize-handle.top-right {
+    top: -6px;
+    right: -6px;
+  }
+
+  .resize-handle.bottom-left {
+    bottom: -6px;
+    left: -6px;
+  }
+
+  .resize-handle.bottom-right {
+    bottom: -6px;
+    right: -6px;
+  }
+
+  .resize-handle.top {
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .resize-handle.bottom {
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .resize-handle.left {
+    left: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .resize-handle.right {
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* Disable cursor styles for touch devices (optional, as cursors don’t apply) */
+  .resize-handle,
+  .rotate-handle {
+    cursor: default !important;
+  }
+
+  /* Enhance touch feedback */
+  .resize-handle:active,
+  .rotate-handle:active {
+    background: #0078d7; /* Highlight on touch */
+  }
+}
+
+/* Ensure handles are hidden when photo is not active */
+.photo-element-pks:not(.active-pks) .resize-handle,
+.photo-element-pks:not(.active-pks) .rotate-handle {
+  display: none;
+}
+
+/* Prevent image selection/dragging on mobile */
+.photo-element-pks img {
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none; /* Disable default touch behaviors */
+}
+
+/* Ensure container respects boundaries (optional, depends on parent) */
+.photo-element-pks {
+  max-width: 100%;
+  max-height: 100%;
+  overflow: visible; /* Allow handles to appear outside */
+}
+
+/* Smooth transitions for transforms (except during interaction) */
+.photo-element-pks {
+  transition: transform 0.1s ease-out;
+}
+
+/* Disable transition during resize/rotate to prevent lag */
+.photo-element-pks.active-pks {
+  transition: none;
+}

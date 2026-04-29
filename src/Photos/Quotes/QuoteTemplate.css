@@ -1,0 +1,416 @@
+/* Quote Templates Styling */
+
+.quote-templates-container {
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Base Quote Template */
+.quote-template {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  box-sizing: border-box;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* ===== INSPIRATIONAL TEMPLATE ===== */
+.quote-template-inspirational {
+  background: #000000;
+  flex-direction: column;
+  display: none !important;
+}
+
+.inspirational-content {
+  text-align: center;
+  position: relative;
+  width: 100%;
+  display: none !important;
+}
+
+.inspirational-open-quote,
+.inspirational-close-quote {
+  font-size: 64px;
+  color: #ffd700;
+  line-height: 1;
+  display: none !important;
+}
+
+.inspirational-open-quote {
+  margin-bottom: 8px;
+}
+
+.inspirational-text {
+  font-size: 24px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 12px 0;
+  line-height: 1.6;
+  font-style: italic;
+  display: none !important;
+}
+
+.inspirational-speaker {
+  font-size: 16px;
+  color: #ffd700;
+  margin: 16px 0 0 0;
+  font-weight: 500;
+  display: none !important;
+}
+
+/* ===== LARGE QUOTE TEMPLATE ===== */
+.quote-template-large-quote {
+  background: #1a1a1a;
+}
+
+.large-quote-content {
+  text-align: center;
+  width: 100%;
+}
+
+.large-quote-text {
+  font-size: 36px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.4;
+  margin: 0 0 24px 0;
+}
+
+.large-quote-speaker {
+  font-size: 18px;
+  color: #b0b0b0;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* ===== PORTRAIT TEMPLATE ===== */
+.quote-template-portrait {
+  background: #000000;
+}
+
+.portrait-content {
+  text-align: center;
+  width: 100%;
+  padding: 0;
+}
+
+.portrait-quote-mark {
+  font-size: 48px;
+  color: #ffffff;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.portrait-text {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.6;
+  margin: 12px 0;
+}
+
+.portrait-speaker {
+  font-size: 16px;
+  color: #a0a0a0;
+  margin: 16px 0 0 0;
+  font-weight: 500;
+}
+
+/* ===== PHOTO + QUOTE SIDE TEMPLATE ===== */
+.quote-template-photo-quote-side {
+  background: #000000;
+  flex-direction: row;
+  gap: 24px;
+}
+
+.quote-content-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.quote-mark-large {
+  font-size: 56px;
+  color: #ffffff;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.quote-text-side {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.6;
+  margin: 8px 0;
+}
+
+.quote-speaker-side {
+  font-size: 14px;
+  color: #808080;
+  margin: 16px 0 0 0;
+  font-weight: 500;
+}
+
+.quote-image-side {
+  flex: 0 0 150px;
+  background: #222222;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quote-image-content {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== PHOTO + QUOTE SIDE FLIPPED TEMPLATE ===== */
+.quote-template-photo-quote-side-flipped {
+  background: #000000;
+  flex-direction: row-reverse;
+  gap: 24px;
+}
+
+.quote-content-side-flipped {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.quote-mark-large-flipped {
+  font-size: 56px;
+  color: #ffffff;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.quote-text-side-flipped {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.6;
+  margin: 8px 0;
+}
+
+.quote-speaker-side-flipped {
+  font-size: 14px;
+  color: #808080;
+  margin: 16px 0 0 0;
+  font-weight: 500;
+}
+
+.quote-image-side-flipped {
+  flex: 0 0 150px;
+  background: #222222;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== RED BORDER TEMPLATE ===== */
+.quote-template-red-border {
+  background: #ffffff;
+}
+
+.red-border-content {
+  border: 4px solid #ff0000;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  width: 100%;
+  background: #ffffff;
+}
+
+.red-border-open,
+.red-border-close {
+  font-size: 48px;
+  color: #ff0000;
+  line-height: 1;
+}
+
+.red-border-open {
+  margin-bottom: 8px;
+}
+
+.red-border-text {
+  font-size: 18px;
+  font-weight: 500;
+  color: #000000;
+  line-height: 1.6;
+  margin: 12px 0;
+}
+
+.red-border-speaker {
+  font-size: 14px;
+  color: #666666;
+  margin: 12px 0 0 0;
+  font-weight: 500;
+}
+
+/* ===== ILLUSTRATED TEMPLATE ===== */
+.quote-template-illustrated {
+  position: relative;
+  background: #1a1a1a;
+  overflow: hidden;
+}
+
+.illustrated-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.illustrated-overlay {
+  position: relative;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 24px;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.illustrated-text {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.6;
+  margin: 0 0 12px 0;
+}
+
+.illustrated-speaker {
+  font-size: 14px;
+  color: #d0d0d0;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* ===== PORTRAIT LARGE TEMPLATE ===== */
+.quote-template-portrait-large {
+  background: #000000;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.portrait-large-image {
+  flex: 0 0 40%;
+  background: #222222;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.portrait-large-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.portrait-large-text {
+  font-size: 22px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.5;
+  margin: 0 0 16px 0;
+}
+
+.portrait-large-speaker {
+  font-size: 16px;
+  color: #a0a0a0;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* ===== PORTRAIT LARGE FLIPPED TEMPLATE ===== */
+.quote-template-portrait-large-flipped {
+  background: #000000;
+  flex-direction: row-reverse;
+  gap: 20px;
+}
+
+.portrait-large-image-flipped {
+  flex: 0 0 40%;
+  background: #222222;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.portrait-large-content-flipped {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.portrait-large-text-flipped {
+  font-size: 22px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.5;
+  margin: 0 0 16px 0;
+}
+
+.portrait-large-speaker-flipped {
+  font-size: 16px;
+  color: #a0a0a0;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .quote-template {
+    padding: 16px;
+  }
+
+  .social-card {
+    max-width: 100%;
+  }
+
+  .inspirational-text,
+  .large-quote-text {
+    font-size: 20px;
+  }
+
+  .quote-template-photo-quote-side,
+  .quote-template-photo-quote-side-flipped,
+  .quote-template-portrait-large,
+  .quote-template-portrait-large-flipped {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .quote-image-side,
+  .quote-image-side-flipped,
+  .portrait-large-image,
+  .portrait-large-image-flipped {
+    flex: 0 0 120px;
+    width: 100%;
+  }
+}

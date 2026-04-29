@@ -1,0 +1,120 @@
+.text-measure {
+  position: fixed;
+  visibility: hidden;
+  pointer-events: none;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  padding: 0;
+  line-height: 1.4;
+  text-align: left;
+  display: inline-block;
+  top: -9999px;
+  left: -9999px;
+  max-width: none;
+  box-sizing: content-box;
+  min-height: auto;
+}
+
+/* Mobile measurement div - match textarea mobile styling */
+@media (max-width: 480px) {
+  .text-measure {
+    box-sizing: border-box;
+    padding: 0 0;
+  }
+}
+
+.text-area-editor {
+  box-sizing: content-box;
+  padding: 0;
+  background: transparent;
+  border: 3px solid transparent !important;
+  border-radius: 4px;
+  outline: none;
+  height: auto !important;
+  width: auto !important;
+  overflow: hidden;
+  min-height: auto;
+  min-width: 50px;
+  resize: none;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  line-height: 1.4;
+  text-align: left;
+  display: block;
+  -webkit-user-select: text;
+  -webkit-user-modify: read-write-plaintext-only;
+  -webkit-appearance: none;
+  appearance: none;
+  font-size: inherit;
+  font-family: inherit;
+  touch-action: manipulation;
+  cursor: text;
+}
+
+.text-area-editor::-webkit-scrollbar {
+  display: none;
+}
+
+.text-area-editor::placeholder {
+  color: #000000;
+  opacity: 0.5;
+}
+
+/* Desktop (1024px+) - Normal sizing */
+@media (min-width: 1024px) {
+  .text-area-editor {
+    font-size: inherit;
+  }
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .text-area-editor {
+    font-size: inherit;
+  }
+}
+
+/* Medium Mobile (481px - 767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+  .text-area-editor {
+    font-size: inherit;
+    touch-action: manipulation;
+  }
+}
+
+/* Small Mobile (360px - 480px) - Prevent iOS zoom */
+@media (max-width: 480px) {
+  .text-area-editor {
+    /* 16px prevents auto-zoom on iOS input focus */
+    font-size: 16px !important;
+    touch-action: manipulation;
+    min-width: 20px;
+    min-height: 35px !important;
+    box-sizing: border-box;
+    padding: 0;
+  }
+}
+
+/* Tiny Mobile (< 360px) - Compact sizing */
+@media (max-width: 359px) {
+  .text-area-editor {
+    font-size: 14px !important;
+    min-width: 15px;
+    min-height: 32px !important;
+    border-width: 2px !important;
+    box-sizing: border-box;
+    padding: 0;
+  }
+}
+
+.text-area-editor:focus {
+  outline: none;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+

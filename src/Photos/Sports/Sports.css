@@ -1,0 +1,1045 @@
+/* Sports.css - Responsive, Smooth Scrolling, and Invisible Scrollbars */
+
+/* Reset default margins and ensure box-sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Enable smooth scrolling globally */
+html {
+  scroll-behavior: smooth;
+  overscroll-behavior: auto;
+}
+
+/* Root editor container */
+.sports-editor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  min-height: 0;
+  background: transparent;
+  width: 100%;
+  overflow: hidden;
+  scroll-behavior: smooth; /* Smooth scrolling */
+  -webkit-overflow-scrolling: touch; /* Momentum scrolling for touch devices */
+  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color: #e9edef;
+  touch-action: manipulation; /* Optimize for touch interactions */
+  scrollbar-width: none; /* Firefox: Hide scrollbar */
+}
+
+.sports-editor::-webkit-scrollbar {
+  display: none; /* Chrome/Safari: Hide scrollbar */
+}
+
+/* Editor container for centering content */
+.editor-container {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+.canvas-panel {
+  max-width: 55vw;
+  max-height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #15181d;
+  border-radius: 8px !important;
+  box-shadow: 0 36px 96px rgba(0, 0, 0, 0.35);
+  overflow: hidden !important;
+  padding: 0;
+  margin: 0 auto;
+  width: auto;
+  height: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+/* Canvas wrapper: responsive and centered */
+.canvas-wrapper {
+  position: relative;
+  width: auto;
+  height: auto;
+  touch-action: none; /* Preserve canvas interactions */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  overflow: hidden; /* Prevent overflow of child elements */
+  background: #15181d;
+  padding: 0px; /* No padding to fill entire space */
+  box-sizing: border-box;
+  border-radius: 8px !important;
+}
+
+.canvas-upload-dropzone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 220px;
+  min-height: 90px;
+  padding: 0 14px;
+  background: transparent;
+  border: 1px dashed #00dd00;
+  border-radius: 8px;
+  color: #a8b0b8;
+  font-size: 0.98rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.canvas-upload-dropzone:hover {
+  transform: translateY(-2px);
+  background: transparent;
+  border-color: #00dd00;
+}
+
+/* Image container: scales with canvas */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden;
+  border: none;
+}
+
+/* Background image: responsive with aspect ratio preservation */
+.image-container img {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Preserve aspect ratio */
+  user-select: none;
+  border: none;
+  outline: none;
+}
+
+/* Overlaid elements: absolute positioning relative to image */
+.text-element,
+.shape-element,
+.emoji-element,
+.photo-element {
+  position: absolute;
+  user-select: none;
+  touch-action: none; /* Ensure touch interactions work */
+}
+
+.text-element.active,
+.shape-element.active,
+.emoji-element.active,
+.photo-element.active {
+  outline: none;
+  z-index: 10; /* Ensure active elements are on top */
+}
+
+/* Shape element styling */
+.shape-element {
+  position: absolute;
+  box-sizing: border-box;
+  transform-origin: center;
+}
+
+.shape-element.rectangle,
+.shape-element.square,
+.shape-element.circle,
+.shape-element.oval,
+.shape-element.trapezoid,
+.shape-element.parallelogram,
+.shape-element.diamond,
+.shape-element.crescent,
+.shape-element.heart {
+  background: transparent;
+  border-style: solid;
+}
+
+.shape-element.triangle,
+.shape-element.pentagon,
+.shape-element.hexagon,
+.shape-element.heptagon,
+.shape-element.octagon {
+  background: transparent;
+  border: none;
+}
+
+.shape-element.line,
+.shape-element.line-arrow,
+.shape-element.line-double-arrow {
+  background: none;
+  border: none;
+}
+
+.shape-element.callout-circle-arrow,
+.shape-element.callout-rectangle,
+.shape-element.callout-rounded-rectangle {
+  background: transparent;
+  border-style: solid;
+  position: relative;
+}
+
+.shape-element.callout-circle-arrow::after,
+.shape-element.callout-rectangle::after,
+.shape-element.callout-rounded-rectangle::after {
+  content: '';
+  position: absolute;
+  border: inherit;
+  background: inherit;
+}
+
+/* Rotation handle */
+.rotation-handle {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  background: #00a884;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Upload prompt: centered and responsive */
+.upload-prompt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50vh; /* Adjust for smaller screens */
+  background: #0b1216;
+  border-radius: 0;
+  border: none;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox: Hide scrollbar */
+}
+
+.upload-prompt::-webkit-scrollbar {
+  display: none; /* Chrome/Safari: Hide scrollbar */
+}
+
+.upload-button {
+  border: none;
+  background: transparent;
+  color: #d5d9dc;
+  font-size: clamp(14px, 2vw, 16px);
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.upload-button:hover {
+  opacity: 0.88;
+}
+
+/* Toolbar: top panel and responsive */
+.toolbar-row-sports {
+  width: min(90vw, 960px);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.tool-group-sports.primary-tools {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3px;
+  width: 100%;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Secondary tools scroll container */
+.secondary-tools-scroll-container-sports {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: visible;
+  padding: 12px 24px;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox: Hide scrollbar */
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  box-sizing: border-box;
+}
+
+.secondary-tools-scroll-container-sports::-webkit-scrollbar {
+  display: none; /* Chrome/Safari: Hide scrollbar */
+}
+
+/* Tool buttons */
+.tool-group-sports {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 0;
+}
+
+.tool-group-sports.secondary-tools {
+  gap: 15px;
+}
+
+.tool-button-sports,
+.download-button-sports {
+  padding: 6px 18px;
+  background: transparent;
+  color: #000000;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 750;
+  transition: all 0.3s;
+  margin: 0;
+  height: 30px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+}
+
+.tool-button-sports:hover,
+.download-button-sports:hover {
+  background: rgba(0, 168, 132, 0.1);
+  color: #00a884;
+}
+
+.tool-button-sports.active,
+.download-button-sports.active {
+  background: transparent;
+  color: #00a884;
+}
+
+.tool-button-sports:disabled,
+.download-button-sports:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+
+/* File input for New Photo button */
+.new-photo-input {
+  display: none; /* Hide the file input */
+}
+
+/* Form controls */
+.form-group-sports {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  vertical-align: middle;
+}
+
+.form-group-sports label {
+  font-size: 14px;
+  color: #8696a0;
+  margin: 0;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+}
+
+.font-select-sports,
+.shape-select-sports,
+.color-select-sports,
+.width-select-sports,
+.underline-select-sports {
+  padding: 8px;
+  background: #0b1216;
+  border: 1px solid #2a3942;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #e9edef;
+  height: 36px;
+  box-sizing: border-box;
+  min-width: 120px;
+  cursor: pointer;
+}
+
+.underline-select-sports option {
+  background: #0b1216;
+  color: #e9edef;
+}
+
+.color-input-sports {
+  width: 36px;
+  height: 36px;
+  padding: 2px;
+  background: #0b1216;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.style-buttons-sports {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.style-button-sports {
+  padding: 8px 12px;
+  background: transparent;
+  border: 1px solid #2a3942;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #e9edef;
+  height: 36px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s;
+}
+
+.style-button-sports:hover {
+  border-color: #00a884;
+  color: #00a884;
+}
+
+.style-button-sports.active {
+  background: rgba(0, 168, 132, 0.2);
+  border-color: #00a884;
+  color: #00a884;
+}
+
+/* Emoji selector */
+.emoji-selector-container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-top: -10px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox: Hide scrollbar */
+}
+
+.emoji-selector-container::-webkit-scrollbar {
+  display: none; /* Chrome/Safari: Hide scrollbar */
+}
+
+.emoji-selector {
+  display: grid;
+  grid-template-rows: repeat(4, 36px);
+  grid-auto-flow: column;
+  gap: 8px;
+  padding: 8px;
+  width: max-content;
+  min-width: 100%;
+  height: 184px;
+  background: #0b1216;
+  border-radius: 8px;
+  border: 1px solid #2a3942;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox: Hide scrollbar */
+}
+
+.emoji-selector::-webkit-scrollbar {
+  display: none; /* Chrome/Safari: Hide scrollbar */
+}
+
+.emoji-option {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  cursor: pointer;
+  border-radius: 4px;
+  background: transparent;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.emoji-option:hover {
+  border-color: transparent;
+  transform: scale(1.1);
+  background: rgba(0, 168, 132, 0.1);
+}
+
+.emoji-option.active {
+  background: transparent;
+  border-color: #00a884;
+}
+
+/* Download and New Photo button container */
+.download-button-container-sports {
+  display: flex;
+  flex-direction: row; /* Align buttons horizontally */
+  justify-content: center; /* Center buttons */
+  align-items: center; /* Vertically align buttons */
+  gap: 15px; /* Spacing between buttons */
+  padding: 15px 24px; /* Consistent padding */
+  width: 100%; /* Ensure full width */
+  margin-top: auto;
+}
+
+/* Text element input */
+.text-element input {
+  background: transparent;
+  border: none;
+  outline: none;
+  text-align: center;
+  width: auto;
+  min-width: 100px;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: inherit;
+  -webkit-text-stroke: inherit;
+}
+
+/* Tooltip styles */
+[data-tooltip] {
+  position: relative;
+}
+
+[data-tooltip]:hover::after {
+  display: none;
+}
+
+/* Responsive adjustments */
+
+/* Desktop screens (≥769px) */
+@media (min-width: 769px) {
+  .primary-tools-scroll-container-sports {
+    width: auto;
+    margin: 0 !important;
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+    justify-content: center;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .primary-tools-scroll-container-sports::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tool-group-sports.primary-tools {
+    gap: 12px;
+  }
+}
+
+/* Small screens (≤768px) */
+@media (max-width: 768px) {
+  .sports-editor {
+    padding: 0;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .sports-editor::-webkit-scrollbar {
+    display: none;
+  }
+  .canvas-wrapper {
+    width: auto;
+    height: auto;
+    max-width: 95vw;
+    max-height: 60vh;
+    border-radius: 4px !important;
+    overflow: hidden !important;
+  }
+  .canvas-panel {
+    width: auto;
+    height: auto;
+    max-width: 95vw;
+    max-height: 60vh;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .image-container {
+    border-radius: 4px !important;
+  }
+  .image-container img {
+    border-radius: 4px !important;
+  }
+  .upload-prompt {
+    height: 40vh; /* Smaller height for mobile */
+  }
+  .upload-button {
+    font-size: clamp(12px, 3.5vw, 14px);
+    padding: 0;
+  }
+  .bottom-toolbar-sports {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 95vw;
+  }
+  .primary-tools-scroll-container-sports {
+    padding: 0 !important;
+    margin: 0 !important;
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .secondary-tools-scroll-container-sports {
+    padding: 10px 18px 10px 0;
+    margin-left: 18px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .primary-tools-scroll-container-sports::-webkit-scrollbar,
+  .secondary-tools-scroll-container-sports::-webkit-scrollbar {
+    display: none;
+  }
+  .tool-group-sports.primary-tools {
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  .tool-button-sports,
+  .download-button-sports,
+  .font-select-sports,
+  .shape-select-sports,
+  .color-select-sports,
+  .width-select-sports,
+  .underline-select-sports {
+    height: 32px;
+    font-size: 13px;
+    padding: 8px 14px;
+    min-width: 70px;
+    margin: 0 !important;
+  }
+  .form-group-sports label {
+    font-size: 13px;
+  }
+  .color-input-sports {
+    height: 32px;
+    width: 32px;
+  }
+  .emoji-option {
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+  }
+  .size-slider {
+    width: 100px;
+  }
+  .download-button-container-sports {
+    gap: 1px !important; /* Smaller gap on smaller screens */
+  }
+}
+
+/* Extra small screens (≤480px) */
+@media (max-width: 480px) {
+  .canvas-wrapper {
+    width: auto;
+    height: auto;
+    max-width: 98vw;
+    max-height: 55vh;
+    border-radius: 3px !important;
+    overflow: hidden !important;
+  }
+  .canvas-panel {
+    width: auto;
+    height: auto;
+    max-width: 98vw;
+    max-height: 55vh;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .image-container {
+    border-radius: 3px !important;
+  }
+  .image-container img {
+    border-radius: 3px !important;
+  }
+  .upload-prompt {
+    height: 35vh;
+  }
+  .upload-button {
+    font-size: clamp(10px, 3vw, 12px);
+    padding: 0;
+  }
+  .tool-group-sports {
+    gap: 0 !important;
+  }
+  .tool-group-sports.primary-tools {
+    gap: 0 !important;
+    flex-wrap: nowrap;
+  }
+  .tool-button-sports,
+  .download-button-sports {
+    margin: 0 !important;
+  }
+  .form-group-sports {
+    gap: 6px;
+  }
+  .primary-tools-scroll-container-sports,
+  .secondary-tools-scroll-container-sports {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 20px !important;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    border-bottom: 1px solid #2a3942;
+  }
+  .primary-tools-scroll-container-sports::-webkit-scrollbar,
+  .secondary-tools-scroll-container-sports::-webkit-scrollbar {
+    display: none;
+  }
+  .tool-group-sports.primary-tools {
+    padding-left: 12px;
+    padding-right: 12px;
+    margin: 0;
+  }
+  .tool-button-sports,
+  .download-button-sports {
+    border: none;
+  }
+  .tool-button-sports:hover,
+  .download-button-sports:hover {
+    background: transparent;
+    border-color: transparent;
+    color: #00a884;
+  }
+  .tool-button-sports.active,
+  .download-button-sports.active {
+    background: transparent;
+    border-color: transparent;
+    color: #00a884;
+  }
+  .tool-button-sports,
+  .download-button-sports,
+  .font-select-sports,
+  .shape-select-sports,
+  .color-select-sports,
+  .width-select-sports,
+  .underline-select-sports {
+    height: 30px;
+    font-size: 12px;
+    padding: 6px 12px;
+    min-width: 60px;
+    margin: 0 !important;
+  }
+  .download-button-sports {
+    height: 30px;
+    font-size: 12px;
+    padding: 6px 12px;
+    min-width: 60px;
+    max-width: fit-content;
+    /* Removed margin-left to avoid centering issues */
+  }
+  .color-input-sports {
+    height: 30px;
+    width: 30px;
+  }
+  .emoji-option {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+  }
+  .size-slider {
+    width: 80px;
+  }
+  .download-button-container-sports {
+    gap: 0px !important; /* Even smaller gap on extra small screens */
+  }
+}
+
+/* Handle landscape orientation */
+@media (orientation: landscape) {
+  .canvas-wrapper {
+    max-height: 85vh; /* More height in landscape */
+    padding: 3px 3px 3px 3px; /* Minimal padding all sides */
+    justify-content: center;
+    align-items: center; /* Center horizontally but reduce vertical gap */
+  }
+  .image-container {
+    max-height: 85vh;
+  }
+  .image-container img {
+    max-height: 85vh;
+  }
+  .upload-prompt {
+    height: 60vh;
+  }
+}
+
+/* Handle portrait orientation */
+@media (orientation: portrait) {
+  .canvas-wrapper {
+    max-height: 70vh; /* Slightly less height in portrait */
+  }
+  .image-container {
+    max-height: 70vh;
+  }
+  .image-container img {
+    max-height: 70vh;
+  }
+  .upload-prompt {
+    height: 50vh;
+  }
+}
+
+/* Mobile responsiveness for crop panel - Tablet (768px and below) */
+@media (max-width: 768px) {
+  .crop-panel-sidebar {
+    position: fixed;
+    right: 10px;
+    top: auto;
+    bottom: 20px;
+    width: 90vw;
+    max-width: 320px;
+    padding: 10px;
+  }
+  
+  .crop-panel-header h3 {
+    font-size: 13px;
+  }
+  
+  .crop-header-dimensions {
+    font-size: 10px;
+  }
+}
+
+/* Mobile responsiveness for crop panel - Mobile (480px and below) */
+@media (max-width: 480px) {
+  .crop-panel-sidebar {
+    position: fixed;
+    right: 8px;
+    bottom: 15px;
+    width: calc(100vw - 16px);
+    max-width: none;
+    padding: 8px;
+  }
+  
+  .crop-panel-header {
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+  }
+  
+  .crop-panel-header h3 {
+    font-size: 12px;
+  }
+  
+  .crop-header-dimensions {
+    font-size: 9px;
+  }
+  
+  .crop-panel-buttons {
+    gap: 6px;
+  }
+  
+  .crop-cancel-btn, 
+  .crop-apply-btn {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+}
+
+/* Download button */
+.download-button {
+  padding: 10px 20px;
+  margin: 10px;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.download-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.team-button:hover {
+  background: transparent; /* Darker shade on hover */
+}
+
+.team-button {
+  background: transparent;
+  margin-left: 50px;
+  margin-right: 70px;
+}
+
+.team-button:focus {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+  background: transparent;
+}
+
+.team-button {
+  width: 80px;
+  height: 60px;
+  padding: 8px;
+  background: #00ff00;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+  border: 2px solid #00ff00;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.team-button:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.team-buttons {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 10;
+  width: fit-content;
+  pointer-events: auto;
+}
+
+.team-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.logo-container {
+  width: 60px;
+  height: 60px;
+  border: 1px dotted #00ff00;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  border-style: solid;
+}
+
+.team-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.no-logo {
+  font-size: 12px;
+  color: #666;
+}
+
+.score-select {
+  width: 50px;
+  height: 40px;
+  font-size: 24px;
+  font-weight: 900;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #00ff00;
+  background: green;
+  cursor: pointer;
+}
+
+.score-select:nth-of-type(2) {
+  width: 60px;
+  height: 70px;
+  font-size: 44px;
+  font-weight: 900;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #00ff00;
+  background: transparent;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.score-separator {
+  font-size: 24px;
+  font-weight: 900;
+  color: #333;
+  margin: 0 5px;
+  line-height: 40px;
+}.image-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.add-image-buttons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

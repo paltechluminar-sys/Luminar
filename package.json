@@ -1,0 +1,79 @@
+{
+  "name": "brandme",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "/",
+  "dependencies": {
+    "@capacitor/android": "^8.3.1",
+    "@capacitor/camera": "^8.1.0",
+    "@capacitor/cli": "^8.3.1",
+    "@capacitor/core": "^8.3.1",
+    "@capacitor/geolocation": "^8.2.0",
+    "@capacitor/ios": "^8.3.1",
+    "@capacitor/network": "^8.0.1",
+    "@capacitor/splash-screen": "^8.0.1",
+    "@capacitor/status-bar": "^8.0.2",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.14.0",
+    "@supabase/supabase-js": "^2.105.0",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.6.0",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "react-icons": "^4.12.0",
+    "react-router-dom": "^6.20.0",
+    "react-scripts": "5.0.1",
+    "recharts": "^2.10.0",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "predeploy": "npm run build:prod",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "build:prod": "set CI=false && react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "cap:build": "npm run build && npx cap sync",
+    "cap:open:ios": "npx cap open ios",
+    "cap:open:android": "npx cap open android",
+    "cap:sync": "npx cap sync",
+    "cap:sync:ios": "npx cap sync ios",
+    "cap:sync:android": "npx cap sync android",
+    "cap:run:ios": "npm run build && npx cap sync ios && npx cap run ios",
+    "cap:run:android": "npm run build && npx cap sync android && npx cap run android",
+    "mobile": "npm run cap:build",
+    "web": "npm run build",
+    "mobile:dev:sync": "cross-env CAPACITOR_CONFIG_FILE=capacitor.config.dev.ts npx cap sync android",
+    "mobile:dev:run": "cross-env CAPACITOR_CONFIG_FILE=capacitor.config.dev.ts npx cap run android",
+    "mobile:prod:sync": "npm run build && cross-env CAPACITOR_CONFIG_FILE=capacitor.config.prod.ts npx cap sync android",
+    "mobile:prod:run": "npm run build && cross-env CAPACITOR_CONFIG_FILE=capacitor.config.prod.ts npx cap run android",
+    "mobile:prod:release": "npm run build:prod && cross-env CAPACITOR_CONFIG_FILE=capacitor.config.prod.ts npx cap sync android && npx cap open android"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "cross-env": "^10.1.0",
+    "gh-pages": "^6.3.0"
+  }
+}

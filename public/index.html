@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Essential Meta Tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="description" content="Luminar - Premium authentic connections and content creation. Professional photo editing and features designed for creators.">
+    <meta name="keywords" content="luminar, authenticity, content creation, photo editing, social platform, creators">
+    <meta name="author" content="Luminar">
+    <meta name="theme-color" content="#00a884" />
+    <meta name="color-scheme" content="dark light">
+    
+    <!-- Mobile App Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Luminar">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Luminar">
+    <meta name="msapplication-TileColor" content="#00a884">
+    <meta name="msapplication-config" content="%PUBLIC_URL%/browserconfig.xml">
+    
+    <!-- Referrer Policy & Security -->
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://luminar.app/">
+    <meta property="og:title" content="Luminar - Authentic Connections">
+    <meta property="og:description" content="Premium authentic connections and content creation platform.">
+    <meta property="og:image" content="%PUBLIC_URL%/PaltechBlack512.png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://luminar.app/">
+    <meta name="twitter:title" content="Luminar - Authentic Connections">
+    <meta name="twitter:description" content="Premium authentic connections and content creation platform.">
+    <meta name="twitter:image" content="%PUBLIC_URL%/PaltechBlack512.png">
+    
+    <!-- App Icons - PaltechBlack Logo -->
+    <link rel="icon" type="image/png" sizes="192x192" href="%PUBLIC_URL%/PaltechBlack192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="%PUBLIC_URL%/PaltechBlack512.png">
+    <link rel="icon" type="image/png" sizes="152x152" href="%PUBLIC_URL%/PaltechBlack152.png">
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/PaltechBlack180.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="%PUBLIC_URL%/PaltechBlack152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/PaltechBlack180.png">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/PaltechBlack192.png">
+    
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" crossorigin="use-credentials" />
+    
+    <title>Luminar ~ Authenticity</title>
+    
+    <style>
+      :root {
+        --bg-dark: #0b1216; /* Main dark background */
+        --bg-light: #2a3942; /* Secondary dark background */
+        --text-primary: #e9edef; /* Primary text color */
+        --text-secondary: #8696a0; /* Secondary text color */
+        --primary: #00a884; /* Primary accent color */
+        --primary-hover: #008069; /* Darker primary accent */
+        --accent: #008069; /* Accent color */
+        --error: #f15e6c; /* Error color */
+        --warning: #f8961e; /* Warning color */
+        --success: #00a884; /* Success color */
+        
+        --radius: 12px;
+        --radius-sm: 8px;
+        --shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        --shadow-hover: 0 4px 15px rgba(0, 0, 0, 0.4);
+        --transition: all 0.3s ease;
+      }
+      
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      
+      html {
+        height: 100%;
+        width: 100%;
+        scrollbar-width: none;
+      }
+      
+      body {
+        height: 100vh;
+        height: 100dvh; /* Dynamic viewport height for mobile */
+        width: 100%;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        background-color: var(--bg-dark);
+        color: var(--text-primary);
+        -webkit-tap-highlight-color: transparent;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        scrollbar-width: none;
+        margin: 0;
+        padding: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+      
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      body::-webkit-scrollbar {
+        width: 0;
+      }
+      
+      /* Main app container */
+      #root {
+        flex: 1;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        background-color: var(--bg-dark);
+        display: flex;
+        flex-direction: column;
+      }
+      
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      #root::-webkit-scrollbar {
+        display: none;
+      }
+      
+      /* Splash Screen - Full Video */
+      .splash-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--bg-dark);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10000;
+        opacity: 1;
+        transition: opacity 0.5s ease;
+        flex-direction: column;
+      }
+      
+      .splash-screen.hidden {
+        display: none;
+      }
+      
+      .splash-video-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: transparent;
+      }
+      
+      .splash-video-container video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      
+      .splash-fallback {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+        text-align: center;
+        color: var(--text-primary);
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        background: var(--bg-dark);
+        border: none;
+        padding: 0;
+        box-shadow: none;
+        overflow: hidden;
+      }
+      
+      .splash-logo {
+        width: auto;
+        height: auto;
+        max-width: 90vw;
+        max-height: 90vh;
+        max-height: 90dvh;
+        object-fit: contain;
+        object-position: center;
+        border-radius: 0;
+        display: block;
+      }
+      
+      .splash-fallback h2 {
+        font-size: 12px;
+        margin: 0;
+        color: #d0d0d0;
+        font-weight: 400;
+        letter-spacing: 0.5px;
+      }
+      
+      .splash-fallback p {
+        font-size: 12px;
+        color: var(--text-secondary);
+        margin: 5px 0 0 0;
+        letter-spacing: 0.5px;
+      }
+      
+      .brand-primary {
+        animation: fadeOutUp 1.5s ease-in-out 1.5s forwards;
+      }
+      
+      .brand-secondary {
+        animation: fadeInUp 1.5s ease-in-out 1.5s forwards;
+        opacity: 0;
+      }
+      
+      @keyframes fadeOutUp {
+        0% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+      }
+      
+      @keyframes fadeInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      /* Install Prompt */
+      .install-prompt {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: black;
+        color: var(--text-primary);
+        padding: 15px 20px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        display: flex;
+        align-items: center;
+        z-index: 1000;
+        max-width: 90%;
+        animation: slideUp 0.3s ease-out;
+        border: 1px solid var(--bg-light);
+      }
+      
+      .install-prompt.hidden {
+        display: none;
+      }
+      
+      .install-prompt p {
+        margin-right: 15px;
+        font-size: 14px;
+      }
+      
+      .install-btn {
+        background-color: black;
+        color: var(--text-primary);
+        border: none;
+        padding: 8px 15px;
+        border-radius: var(--radius-sm);
+        font-weight: bold;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: var(--transition);
+      }
+      
+      .install-btn:hover {
+        background-color: var(--primary-hover);
+      }
+      
+      .close-prompt {
+        background: none;
+        border: none;
+        color: var(--text-secondary);
+        margin-left: 14px;
+        font-size: 20px;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+      
+      .close-prompt:hover {
+        color: var(--text-primary);
+      }
+      
+      /* Animations */
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      
+      @keyframes fadeInUp {
+        from { 
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to { 
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      @keyframes fadeInScale {
+        from { 
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        to { 
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      
+      @keyframes bounce {
+        0%, 80%, 100% { 
+          transform: translateY(0);
+          opacity: 0.4;
+        }
+        40% { 
+          transform: translateY(-10px);
+          opacity: 1;
+        }
+      }
+      
+      @keyframes slideUp {
+        from { 
+          opacity: 0;
+          transform: translate(-50%, 20px);
+        }
+        to { 
+          opacity: 1;
+          transform: translate(-50%, 0);
+        }
+      }
+      
+      /* iOS safe areas - removed padding to allow full screen color */
+      @supports (padding-top: env(safe-area-inset-top)) {
+        .install-prompt {
+          bottom: calc(20px + env(safe-area-inset-bottom));
+        }
+      }
+      
+      /* No JavaScript Warning */
+      .no-script-warning {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--bg-dark);
+        color: var(--text-primary);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        text-align: center;
+        z-index: 1000;
+      }
+      
+      .no-script-warning h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: var(--text-primary);
+      }
+      
+      .no-script-warning p {
+        margin-bottom: 15px;
+        line-height: 1.5;
+        color: var(--text-secondary);
+      }
+    </style>
+</head>
+<body>
+    <noscript>
+      <div class="no-script-warning">
+        <div>
+          <h1>JavaScript is required</h1>
+          <p>
+            Luminar requires JavaScript to work properly.<br>
+            Please enable JavaScript in your browser settings to continue.
+          </p>
+        </div>
+      </div>
+    </noscript>
+    
+    
+    <!-- Install Prompt -->
+    <div class="install-prompt hidden" id="installPrompt">
+      <p>Luminar</p>
+      <button class="install-btn" id="installBtn">Install</button>
+      <button class="close-prompt" id="closePrompt">×</button>
+    </div>
+    
+    <!-- Main App Content -->
+    <div id="root"></div>
+    
+    <script>
+      
+      // PWA Installation Handling
+      (function() {
+        let deferredPrompt;
+        const installPrompt = document.getElementById('installPrompt');
+        const installBtn = document.getElementById('installBtn');
+        const closePrompt = document.getElementById('closePrompt');
+        
+        if (installPrompt && installBtn && closePrompt) {
+          window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            setTimeout(() => {
+              installPrompt.classList.remove('hidden');
+            }, 3000);
+          });
+          
+          installBtn.addEventListener('click', async () => {
+            if (!deferredPrompt) return;
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            console.log(`User response: ${outcome}`);
+            deferredPrompt = null;
+            installPrompt.classList.add('hidden');
+          });
+          
+          closePrompt.addEventListener('click', () => {
+            installPrompt.classList.add('hidden');
+          });
+        }
+      })();
+      
+      
+
+    </script>
+</body>
+</html>    

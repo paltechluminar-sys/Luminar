@@ -1,0 +1,361 @@
+.crop-tool-overlay {
+  background-color: transparent;
+  overflow: visible !important;
+  margin: 0;
+  padding: 0;
+  clip-path: none !important;
+}
+
+.crop-tool-header {
+  padding: 15px 20px;
+  background-color: rgba(26, 26, 26, 0.95);
+  border-bottom: 1px solid #333;
+  color: #fff;
+}
+
+.crop-tool-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.crop-tool-header p {
+  margin: 3px 0 0 0;
+  font-size: 12px;
+  color: #999;
+}
+
+.crop-container {
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+}
+
+.crop-frame {
+  position: relative;
+  overflow: visible !important;
+  clip-path: none !important;
+}
+
+/* Crop handles */
+.crop-handle {
+  position: absolute !important;
+  background-color: #fff;
+  border: 2px solid #0066cc;
+  z-index: 20;
+  cursor: grab;
+  box-shadow: 0 0 8px rgba(0, 102, 204, 0.4);
+  pointer-events: auto !important;
+  touch-action: none !important;
+  clip-path: none !important;
+  overflow: visible !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.crop-handle:hover {
+  background-color: #0066cc;
+  box-shadow: 0 0 15px rgba(0, 102, 204, 0.8);
+}
+
+.crop-handle:active {
+  cursor: grabbing;
+}
+
+/* Corner handles - small circles */
+.crop-handle-nw,
+.crop-handle-ne,
+.crop-handle-sw,
+.crop-handle-se {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #00ffff, #00d9ff) !important;
+  border: 2px solid #00ffff !important;
+  box-shadow: 0 0 12px rgba(0, 217, 255, 0.9), inset 0 0 6px rgba(0, 217, 255, 0.8) !important;
+  z-index: 40 !important;
+  position: absolute !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.crop-handle-nw {
+  top: -6px !important;
+  left: -6px !important;
+  cursor: nwse-resize;
+}
+
+.crop-handle-ne {
+  top: -6px !important;
+  right: -6px !important;
+  cursor: nesw-resize;
+}
+
+.crop-handle-sw {
+  bottom: -6px !important;
+  left: -6px !important;
+  cursor: nesw-resize;
+}
+
+.crop-handle-se {
+  bottom: -6px !important;
+  right: -6px !important;
+  cursor: nwse-resize;
+}
+
+/* Edge handles - thin lines, half in/half out */
+.crop-handle-n,
+.crop-handle-s {
+  left: 50%;
+  width: 90px;
+  height: 4px;
+  transform: translateX(-50%);
+  border-radius: 0;
+  background-color: #00d9ff !important;
+  border: none !important;
+  box-shadow: 0 0 6px rgba(0, 217, 255, 0.8) !important;
+  z-index: 25;
+  position: absolute !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.crop-handle-n {
+  top: -3px !important;
+  cursor: ns-resize;
+}
+
+.crop-handle-s {
+  bottom: -3px !important;
+  cursor: ns-resize;
+}
+
+.crop-handle-w,
+.crop-handle-e {
+  top: 50%;
+  width: 4px;
+  height: 90px;
+  transform: translateY(-50%);
+  border-radius: 0;
+  background-color: #00d9ff !important;
+  border: none !important;
+  box-shadow: 0 0 6px rgba(0, 217, 255, 0.8) !important;
+  z-index: 25;
+  position: absolute !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.crop-handle-w {
+  left: -3px !important;
+  cursor: ew-resize;
+}
+
+.crop-handle-e {
+  right: -3px !important;
+  cursor: ew-resize;
+}
+
+/* Mobile responsiveness for crop handles */
+@media (max-width: 768px) {
+  /* Make corner handles much larger for mobile touch targets (44px minimum) */
+  .crop-handle-nw,
+  .crop-handle-ne,
+  .crop-handle-sw,
+  .crop-handle-se {
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #00ffff, #00d9ff) !important;
+    border: 2px solid #00ffff !important;
+    box-shadow: 0 0 8px rgba(0, 217, 255, 0.6) !important;
+    z-index: 40 !important;
+  }
+
+  .crop-handle-nw {
+    top: -5px !important;
+    left: -5px !important;
+  }
+
+  .crop-handle-ne {
+    top: -5px !important;
+    right: -5px !important;
+  }
+
+  .crop-handle-sw {
+    bottom: -5px !important;
+    left: -5px !important;
+  }
+
+  .crop-handle-se {
+    bottom: -5px !important;
+    right: -5px !important;
+  }
+
+  /* Expand edge handles for mobile */
+  .crop-handle-n,
+  .crop-handle-s {
+    width: 40px;
+    height: 3px;
+    top: auto !important;
+    bottom: auto !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 25;
+    background-color: #00d9ff !important;
+    box-shadow: 0 0 6px rgba(0, 217, 255, 0.6) !important;
+  }
+  
+  .crop-handle-w,
+  .crop-handle-e {
+    height: 40px;
+    width: 3px;
+    left: auto !important;
+    right: auto !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 25;
+    background-color: #00d9ff !important;
+    box-shadow: 0 0 6px rgba(0, 217, 255, 0.6) !important;
+  }
+
+  .crop-handle-n {
+    top: -3px !important;
+  }
+
+  .crop-handle-s {
+    bottom: -3px !important;
+  }
+
+  .crop-handle-w {
+    left: -3px !important;
+  }
+
+  .crop-handle-e {
+    right: -3px !important;
+  }
+}
+
+/* Crop panel sidebar styling */
+.crop-panel-sidebar {
+  display: flex;
+  flex-direction: column;
+  background: #1a1f26;
+  border: 1px solid #2a3942;
+  border-radius: 12px;
+  padding: 12px;
+  width: 260px;
+  max-width: 260px;
+  min-width: 260px;
+  flex-shrink: 0;
+  position: fixed;
+  right: 20px;
+  top: 160px;
+  z-index: 100;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+
+.crop-panel-header {
+  margin-bottom: 12px;
+  border-bottom: 1px solid #2a3942;
+  padding-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.crop-panel-header h3 {
+  margin: 0;
+  color: #e9edef;
+  font-size: 14px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.crop-header-dimensions {
+  color: #00a884;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.crop-panel-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.crop-dimensions {
+  display: none;
+}
+
+.crop-panel-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.crop-cancel-btn,
+.crop-apply-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .crop-cancel-btn,
+  .crop-apply-btn {
+    flex: auto;
+  }
+}
+
+@media (min-width: 481px) {
+  .crop-cancel-btn,
+  .crop-apply-btn {
+    flex: 1;
+  }
+}
+
+.crop-cancel-btn {
+  background-color: #2a3942 !important;
+  color: #e9edef;
+}
+
+.crop-cancel-btn:hover {
+  background-color: #3a4952 !important;
+}
+
+.crop-apply-btn {
+  background-color: #00a884 !important;
+  color: #fff !important;
+}
+
+.crop-apply-btn:hover {
+  background-color: #00897b !important;
+}
+
+/* Mobile responsive - crop panel */
+@media (max-width: 768px) {
+  .crop-panel-sidebar {
+    position: relative !important;
+    right: auto !important;
+    left: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    width: 85vw !important;
+    max-width: 320px !important;
+    margin: 20px auto !important;
+    padding: 12px !important;
+    order: 50 !important;
+    transform: none !important;
+    box-sizing: border-box !important;
+  }
+}
+

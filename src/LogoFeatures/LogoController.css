@@ -1,0 +1,100 @@
+.logo-controller {
+  transform-origin: center center;
+  transition: none;
+  outline: none;
+  touch-action: none;
+}
+
+.logo-controller.selected {
+  z-index: 100;
+  filter: none;
+}
+
+/* Selection Border */
+.selection-border {
+  border: 2px solid #00dd77 !important;
+  box-shadow: 0 0 8px rgba(0, 221, 119, 0.3) !important;
+  animation: none !important;
+}
+
+/* Resize Handles - MS Publisher Minimal Style */
+.resize-handle {
+  transition: background 0.1s ease;
+  user-select: none;
+  opacity: 1;
+  box-shadow: none;
+}
+
+.resize-handle:hover {
+  background: #00ff99 !important;
+}
+
+.resize-handle:active {
+  background: #00bb55 !important;
+}
+
+/* Corner Circle Points - Always Visible */
+.corner-circle-point {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border: 1px solid #00dd77;
+  border-radius: 50%;
+  box-shadow: inset 0 0 1px 1px white;
+  transition: background 0.15s ease;
+  user-select: none;
+  opacity: 1;
+}
+
+.corner-circle-point[data-handle='tl'] {
+  top: -3px;
+  left: -3px;
+  cursor: nwse-resize;
+}
+
+.corner-circle-point[data-handle='tr'] {
+  top: -3px;
+  right: -3px;
+  cursor: nesw-resize;
+}
+
+.corner-circle-point[data-handle='bl'] {
+  bottom: -3px;
+  left: -3px;
+  cursor: nesw-resize;
+}
+
+.corner-circle-point[data-handle='br'] {
+  bottom: -3px;
+  right: -3px;
+  cursor: nwse-resize;
+}
+
+/* Edge Handles - for width/height adjustment */
+.edge-handle {
+  transition: background 0.15s ease, box-shadow 0.15s ease;
+  user-select: none;
+}
+
+.edge-handle:hover {
+  background: rgba(0, 255, 153, 0.3) !important;
+  box-shadow: 0 0 6px rgba(0, 255, 153, 0.5) !important;
+}
+
+.edge-handle:active {
+  background: rgba(0, 221, 119, 0.5) !important;
+}
+
+/* Rotate Handle */
+.rotate-handle {
+  cursor: grab;
+}
+
+.rotate-handle:active {
+  cursor: grabbing;
+}
+
+.connection-line {
+  background: linear-gradient(to top, rgba(0, 221, 119, 1), rgba(0, 221, 119, 0.3));
+}

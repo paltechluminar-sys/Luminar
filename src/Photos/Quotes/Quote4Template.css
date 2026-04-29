@@ -1,0 +1,344 @@
+/* ===== PORTRAIT QUOTE PREVIEW - For QuotePanel ===== */
+.portrait-quote-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  border: none;
+  border-radius: 0;
+  padding: 10px;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.portrait-quote-photo {
+  width: 100%;
+  height: 120px !important;
+  background: linear-gradient(135deg, #444 0%, #222 100%);
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.portrait-quote-text {
+  font-size: 8px;
+  color: #FFFFFF;
+  font-weight: 600;
+  line-height: 1.4;
+  padding: 5px 0;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.portrait-quote-author {
+  font-size: 8px;
+  color: #FFFFFF;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+/* ===== PORTRAIT QUOTE TEMPLATE ===== */
+
+.portrait-quote-template-wrapper {
+  display: none;
+}
+
+.portrait-quote-template-card {
+  display: none;
+}
+
+/* Quote Mark Section */
+.portrait-quote-template-section-mark {
+  display: none;
+  flex-shrink: 0;
+  position: relative;
+  margin-left: -8px;
+}
+
+/* Opening quote - always visible at top left */
+.portrait-quote-mark:not(.closing-quote) {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  font-size: 32px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1;
+  font-weight: bold;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Quote Text Section */
+.portrait-quote-template-section-text {
+  display: block;
+  position: relative;
+  width: 100%;
+  margin-bottom: 4px;
+}
+
+.portrait-quote-template-section-text::after {
+  display: none;
+}
+
+.portrait-quote-textarea {
+  width: 100%;
+  height: auto;
+  min-height: 80px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #ffffff;
+  margin: 0;
+  padding: 1px 1px 30px 1px;
+  font-weight: 400;
+  background: linear-gradient(135deg, rgba(22, 32, 43, 0.77)); 
+  border: 1px solid rgba(7, 216, 53, 0.2);
+  border-radius: 8px;
+  resize: none;
+  overflow: hidden;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+  position: relative;
+  text-indent: 20px;
+  display: block;
+}
+
+.portrait-quote-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.portrait-quote-textarea:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.portrait-quote-textarea:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.5);
+   background: rgba(20, 28, 38, 0.95);
+   border: 1px solid rgba(7, 216, 53, 0.2);
+}
+
+/* Overlay display that shows text with closing quote on same line */
+.portrait-quote-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1px 1px 30px 1px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: inherit;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 4;
+  display: inline;
+}
+
+.portrait-quote-text-display {
+  font-size: 12px;
+  line-height: 1.6;
+  color: transparent;
+  font-family: inherit;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  display: inline;
+}
+
+/* Closing quote mark - flows with text on same line */
+.portrait-quote-mark.closing-quote {
+  font-size: 32px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1;
+  font-weight: bold;
+  display: inline;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+  margin-left: 28px;
+}
+
+/* Closing quote when textarea is empty - positioned at top-right */
+.portrait-quote-mark.closing-quote-empty {
+  position: absolute;
+  top: 1px;
+  right: 3px;
+  margin-left: 0;
+}
+
+/* Speaker Section - Bottom Right */
+.portrait-quote-template-section-speaker {
+  display: none;
+  justify-content: flex-end;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.portrait-quote-speaker-input {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.7);
+  background: transparent;
+  border: 0.1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  padding: 3px 4px;
+  margin: 0;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.2s ease;
+  max-width: 200px;
+  z-index: 11;
+  pointer-events: auto;
+}
+
+.portrait-quote-speaker-input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.portrait-quote-speaker-input:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.portrait-quote-speaker-input:focus {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+}
+
+
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .portrait-quote-textarea {
+    min-height: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .portrait-quote-textarea {
+    min-height: 70px;
+    font-size: 11px;
+  }
+
+  .portrait-quote-speaker-input {
+    font-size: 8px;
+  }
+}
+
+/* ===== ULTRA-RESPONSIVE MOBILE & TABLET ===== */
+@media (max-width: 480px) {
+  .portrait-quote-textarea {
+    min-height: 60px;
+    font-size: 10px;
+    padding: 1px 1px 20px 1px;
+    text-indent: 15px;
+  }
+
+  .portrait-quote-mark:not(.closing-quote) {
+    font-size: 28px;
+    top: 0px;
+    left: 0px;
+  }
+
+  .portrait-quote-speaker-input {
+    font-size: 7px;
+    padding: 2px 3px;
+  }
+
+  .portrait-quote-overlay {
+    font-size: 10px;
+    line-height: 1.4;
+    padding: 1px 1px 20px 1px;
+  }
+
+  .portrait-quote-text-display {
+    font-size: 10px;
+    line-height: 1.4;
+  }
+
+  .portrait-quote-mark.closing-quote {
+    font-size: 28px;
+    margin-left: 20px;
+  }
+
+  .portrait-quote-mark.closing-quote-empty {
+    font-size: 28px;
+  }
+
+  /* ===== PREVIEW SCALING FOR MOBILE ===== */
+  .portrait-quote-preview {
+    padding: 2px;
+    gap: 0.5px;
+    border: 1px solid #FFFFFF;
+    border-radius: 8px;
+  }
+
+  .portrait-quote-photo {
+    height: 28px !important;
+  }
+
+  .portrait-quote-text {
+    font-size: 6px;
+    padding: 0.5px 0;
+  }
+
+  .portrait-quote-author {
+    font-size: 4px;
+    margin-top: 0px;
+  }
+}
+
+@media (max-width: 360px) {
+  .portrait-quote-textarea {
+    min-height: 50px;
+    font-size: 9px;
+  }
+
+  .portrait-quote-mark:not(.closing-quote) {
+    font-size: 24px;
+  }
+
+  .portrait-quote-speaker-input {
+    font-size: 6px;
+  }
+
+  .portrait-quote-overlay {
+    font-size: 9px;
+  }
+
+  .portrait-quote-text-display {
+    font-size: 9px;
+  }
+
+  /* ===== PREVIEW SCALING FOR EXTRA SMALL MOBILE ===== */
+  .portrait-quote-preview {
+    padding: 2px;
+    gap: 0.5px;
+  }
+
+  .portrait-quote-photo {
+    height: 30px !important;
+  }
+
+  .portrait-quote-text {
+    font-size: 5px;
+    padding: 0.5px 0;
+  }
+
+  .portrait-quote-author {
+    font-size: 4px;
+    margin-top: 0px;
+  }
+}

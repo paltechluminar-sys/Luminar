@@ -1,0 +1,471 @@
+/* ===== LARGE QUOTE PREVIEW - For QuotePanel ===== */
+.large-quote-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.98) 0%, rgba(20, 20, 20, 0.95) 100%);
+  border: 1px solid #FFFFFF;
+  border-radius: 10px;
+  padding: 12px;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.large-quote-handle {
+  font-size: 7px;
+  color: #FFFFFF;
+  opacity: 0.7;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+  padding-bottom: 3px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.large-quote-handle::before,
+.large-quote-handle::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: #FFFFFF;
+}
+
+.large-quote-text {
+  font-size: 9px;
+  color: #FFFFFF;
+  font-weight: 600;
+  line-height: 1.4;
+  padding: 8px 0;
+  max-width: 60%;
+  word-break: break-word;
+  white-space: normal;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.large-quote-author {
+  font-size: 8px;
+  color: #FFFFFF;
+  margin-top: 5px;
+}
+
+/* ===== LARGE QUOTE TEMPLATE ===== */
+
+.large-quote-template-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0;
+}
+
+.large-quote-template-card {
+  width: 620px;
+  background: linear-gradient(135deg, rgba(22, 32, 43, 0.95) 0%, rgba(20, 28, 38, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 1px 2px 1px 2px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  min-height: 20px !important;
+  gap: 0px;
+  margin-bottom: 4px;
+  overflow: visible;
+  position: relative;
+}
+
+/* ===== SECTION 1: HANDLE ===== */
+.large-quote-template-section-handle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+  flex-shrink: 0;
+  margin-bottom: 6px;
+  padding-top: 4px;
+  width: 100%;
+  position: relative;
+  overflow: visible;
+}
+
+.large-quote-template-section-handle::before,
+.large-quote-template-section-handle::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+  position: relative;
+  top: -15px;
+}
+
+.large-quote-template-handle-prefix {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.2;
+  font-weight: 500;
+  position: absolute;
+  left: -6px;
+  top: -9px;
+}
+
+.large-quote-template-handle-input {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.2;
+  background: linear-gradient(135deg, rgba(22, 32, 43, 0.95) 0%, rgba(20, 28, 38, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  outline: none;
+  padding: 2px 4px;
+  margin: 0;
+  font-family: inherit;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+  position: relative;
+  top: -15px;
+}
+
+.large-quote-template-handle-input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.large-quote-template-handle-input:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.large-quote-template-handle-input:focus {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+}
+
+/* ===== DIVIDER SPACE ===== */
+.large-quote-template-divider {
+  height: 4px;
+  flex-shrink: 0;
+}
+
+/* ===== SECTION 2: QUOTE TEXT ===== */
+.large-quote-template-section-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-top: 2px;
+}
+
+.large-quote-template-quote-textarea {
+  width: 100%;
+  height: auto;
+  min-height: 60px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #ffffff;
+  margin: 0;
+  padding: 1px 1px;
+  font-weight: 400;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  resize: none;
+  overflow: hidden;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.large-quote-template-quote-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.large-quote-template-quote-textarea:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.large-quote-template-quote-textarea:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ===== SECTION 3: SPEAKER ===== */
+.large-quote-template-section-speaker {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+  justify-content: center;
+  margin-top: 6px;
+}
+
+.large-quote-template-speaker-prefix {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 500;
+}
+
+.large-quote-template-speaker-input {
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.7);
+  background: transparent;
+  border: 0.1px solid rgba(255, 255, 255, 0.2);
+  outline: none;
+  padding: 3px 4px;
+  margin: 0;
+  font-family: inherit;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  min-width: 120px;
+}
+
+.large-quote-template-speaker-input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.large-quote-template-speaker-input:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.large-quote-template-speaker-input:focus {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .large-quote-template-card {
+    width: 480px;
+    padding: 8px 14px 10px 14px;
+  }
+
+  .large-quote-template-quote-textarea {
+    min-height: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .large-quote-template-card {
+    width: 420px;
+    padding: 6px 12px 8px 12px;
+  }
+
+  .large-quote-template-quote-textarea {
+    min-height: 50px;
+  }
+
+  .large-quote-template-handle-input {
+    font-size: 11px;
+  }
+
+  .large-quote-template-speaker-input {
+    font-size: 8px;
+  }
+}
+
+/* ===== ULTRA-RESPONSIVE MOBILE & TABLET ===== */
+@media (max-width: 480px) {
+  .large-quote-template-card {
+    width: calc(100vw - 24px);
+    max-width: 340px;
+    padding: 4px 8px 6px 8px;
+  }
+
+  .large-quote-template-section-handle {
+    margin-bottom: 4px;
+    padding-top: 2px;
+  }
+
+  .large-quote-template-section-handle::before,
+  .large-quote-template-section-handle::after {
+    top: -6px;
+  }
+
+  .large-quote-template-handle-prefix {
+    font-size: 10px;
+    top: -3px;
+  }
+
+  .large-quote-template-handle-input {
+    font-size: 10px;
+    padding: 1px 3px;
+    top: -6px;
+  }
+
+  .large-quote-template-quote-textarea {
+    min-height: 45px;
+    font-size: 11px;
+    padding: 1px 1px;
+  }
+
+  .large-quote-template-section-speaker {
+    gap: 1px;
+    margin-top: 4px;
+  }
+
+  .large-quote-template-speaker-prefix {
+    font-size: 12px;
+  }
+
+  .large-quote-template-speaker-input {
+    font-size: 8px;
+    padding: 2px 3px;
+    min-width: 90px;
+  }
+
+  .large-quote-template-divider {
+    height: 2px;
+  }
+
+  /* ===== PREVIEW SCALING FOR MOBILE ===== */
+  .large-quote-preview {
+    padding: 3px;
+    gap: 0.5px;
+  }
+
+  .large-quote-handle {
+    font-size: 6px;
+    margin-bottom: 1px;
+    padding-bottom: 0.5px;
+  }
+
+  .large-quote-handle::before,
+  .large-quote-handle::after {
+    height: 1px;
+  }
+
+  .large-quote-text {
+    font-size: 7px;
+    line-height: 1.1;
+    padding: 2px 0;
+    max-width: 100%;
+  }
+
+  .large-quote-author {
+    font-size: 5px;
+    margin-top: 0.5px;
+  }
+}
+
+@media (max-width: 360px) {
+  .large-quote-template-card {
+    width: calc(100vw - 16px);
+    max-width: 100%;
+    padding: 3px 6px 5px 6px;
+  }
+
+  .large-quote-template-section-handle {
+    margin-bottom: 3px;
+    padding-top: 1px;
+  }
+
+  .large-quote-template-section-handle::before,
+  .large-quote-template-section-handle::after {
+    top: -5px;
+  }
+
+  .large-quote-template-handle-prefix {
+    font-size: 9px;
+    top: -2px;
+  }
+
+  .large-quote-template-handle-input {
+    font-size: 9px;
+    padding: 1px 2px;
+    top: -5px;
+  }
+
+  .large-quote-template-quote-textarea {
+    min-height: 40px;
+    font-size: 10px;
+  }
+
+  .large-quote-template-speaker-prefix {
+    font-size: 11px;
+  }
+
+  .large-quote-template-speaker-input {
+    font-size: 7px;
+    padding: 1px 2px;
+    min-width: 80px;
+  }
+
+  .large-quote-template-divider {
+    height: 1px;
+  }
+
+  /* ===== PREVIEW SCALING FOR MOBILE ===== */
+  .large-quote-preview {
+    padding: 3px;
+    gap: 0.5px;
+  }
+
+  .large-quote-handle {
+    font-size: 5px;
+    gap: 2px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
+
+  .large-quote-handle::before,
+  .large-quote-handle::after {
+    height: 0.5px;
+  }
+
+  .large-quote-text {
+    font-size: 6px;
+    line-height: 1.1;
+    padding: 1px 0;
+    max-width: 95%;
+  }
+
+  .large-quote-author {
+    font-size: 5px;
+    margin-top: 0px;
+  }
+}
+
+@media (max-width: 360px) {
+  /* ===== PREVIEW SCALING FOR EXTRA SMALL MOBILE ===== */
+  .large-quote-preview {
+    padding: 3px;
+    gap: 0px;
+    border: 1px solid #FFFFFF;
+    border-radius: 8px;
+  }
+
+  .large-quote-handle {
+    font-size: 3px;
+    gap: 1px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
+
+  .large-quote-handle::before,
+  .large-quote-handle::after {
+    height: 0.5px;
+  }
+
+  .large-quote-text {
+    font-size: 5px;
+    line-height: 0.9;
+    padding: 0px 0;
+    max-width: 95%;
+  }
+
+  .large-quote-author {
+    font-size: 4px;
+    margin-top: 0px;
+  }
+}

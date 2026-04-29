@@ -1,0 +1,189 @@
+/* Download button wrapper - for mobile reordering */
+.download-button-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 0;
+  margin: 0;
+}
+
+/* Download section styling */
+.download-section {
+  width: 100%;
+  padding: 0;
+  text-align: center;
+}
+
+.download-section button {
+  transition: all 0.3s ease;
+}
+
+.download-button-sports {
+  padding: 6px 18px;
+  background: transparent;
+  color: #e9edef;
+  border: 1px solid #2a3942;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.3s;
+  margin: 0;
+  height: 30px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+}
+
+.download-button-sports:hover {
+  background: rgba(0, 168, 132, 0.1);
+  border-color: transparent;
+  color: #00a884;
+}
+
+.download-button-sports.active {
+  background: transparent;
+  border-color: #00a884;
+  color: #00a884;
+}
+
+.download-button-sports:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: #2a3942;
+}
+
+.download-button-container-sports {
+  display: flex;
+  gap: 8px;
+}
+
+/* Tablet responsiveness (768px and below) */
+@media (max-width: 768px) {
+  .download-button-wrapper {
+    position: relative !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    z-index: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: none !important;
+    backdrop-filter: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .download-section {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+  }
+
+  .download-section button {
+    width: auto;
+    max-width: none !important;
+    padding: 8px 16px !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    background: transparent !important;
+    color: #00a884 !important;
+    border: 1px solid #00a884 !important;
+    border-radius: 8px !important;
+    cursor: pointer;
+    touch-action: manipulation;
+    box-shadow: none !important;
+    transition: all 0.3s ease !important;
+    letter-spacing: 0.5px;
+  }
+
+  .download-section button:hover {
+    transform: none;
+    box-shadow: 0 0 12px rgba(0, 168, 132, 0.4) !important;
+  }
+
+  .download-section button:active {
+    transform: none;
+    box-shadow: 0 0 8px rgba(0, 168, 132, 0.3) !important;
+  }
+
+  .download-button-sports {
+    height: 32px;
+    font-size: 13px;
+    padding: 8px 14px;
+    min-width: 70px;
+    margin: 0 !important;
+  }
+
+  .download-button-sports {
+    border: none;
+  }
+
+  .download-button-sports:hover {
+    background: transparent;
+    border-color: transparent;
+    color: #00a884;
+  }
+
+  .download-button-sports.active {
+    background: transparent;
+    border-color: transparent;
+    color: #00a884;
+  }
+
+  .download-button-container-sports {
+    gap: 1px !important;
+  }
+}
+
+/* Mobile responsiveness (480px and below) */
+@media (max-width: 480px) {
+  .download-button-wrapper {
+    order: 100;
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .download-button-sports {
+    height: 30px;
+    font-size: 12px;
+    padding: 6px 12px;
+    min-width: 60px;
+    margin: 0 !important;
+  }
+
+  .download-button-sports {
+    border: none;
+  }
+
+  .download-button-sports:hover {
+    background: transparent;
+    border-color: transparent;
+  }
+
+  .download-button-sports.active {
+    background: transparent;
+    border-color: transparent;
+  }
+
+  .download-button-sports {
+    height: 30px;
+    font-size: 12px;
+    padding: 6px 12px;
+    min-width: 60px;
+    max-width: fit-content;
+  }
+
+  .download-button-container-sports {
+    gap: 0px !important;
+  }
+}
